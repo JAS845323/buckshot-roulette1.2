@@ -1,0 +1,95 @@
+/* 基础样式 - 暗黑主题 */
+:root {
+    --blood-red: #8b0000;
+    --dark-bg: #0a0a0a;
+    --darker-bg: #050505;
+    --neon-red: #ff0000;
+    --neon-blue: #00ffff;
+    --text-glow: 0 0 5px var(--neon-red), 0 0 10px var(--neon-red);
+}
+
+body {
+    font-family: 'Cinzel Decorative', cursive;
+    background-color: var(--dark-bg);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.blood-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.1 0"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.2"/></svg>'),
+                linear-gradient(rgba(139, 0, 0, 0.1), rgba(139, 0, 0, 0.1));
+    pointer-events: none;
+    z-index: -1;
+}
+
+.game-container {
+    background-color: rgba(10, 10, 10, 0.8);
+    border: 1px solid var(--blood-red);
+    border-radius: 5px;
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.5),
+                0 0 40px rgba(139, 0, 0, 0.3) inset;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-red), transparent);
+    animation: scanline 3s linear infinite;
+}
+
+@keyframes scanline {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+.title-glitch {
+    font-family: 'Creepster', cursive;
+    font-size: 3rem;
+    text-align: center;
+    color: var(--neon-red);
+    text-shadow: var(--text-glow);
+    margin-bottom: 20px;
+    position: relative;
+    animation: glitch 5s infinite;
+}
+
+.title-glitch span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--neon-blue);
+    animation: glitch-2 5s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-5px, -5px);
+    opacity: 0.8;
+}
+
+@keyframes glitch {
+    0%, 100% { text-shadow: var(--text-glow); }
+    25% { text-shadow: 2px 0 5px var(--neon-blue), -2px 0 5px var(--neon-red); }
+    50% { transform: skew(5deg); }
+    75% { transform: skew(-5deg); }
+}
+
+/* 其他CSS部分保持不变，根据之前的完整代码补充 */

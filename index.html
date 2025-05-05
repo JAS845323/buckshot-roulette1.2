@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buckshot Roulette</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="blood-overlay"></div>
+    <div class="game-container">
+        <h1 class="title-glitch">BUCKSHOT<span>ROULETTE</span></h1>
+        
+        <div class="game-info">
+            <div class="health-bar player">
+                <div class="health-text">PLAYER</div>
+                <div class="hearts" id="player-health"></div>
+            </div>
+            <div class="round-display">
+                <span id="round-info">ROUND 1</span>
+                <span id="turn-info">YOUR TURN</span>
+            </div>
+            <div class="health-bar ai">
+                <div class="health-text">ENEMY</div>
+                <div class="hearts" id="ai-health"></div>
+            </div>
+        </div>
+        
+        <div class="bullet-display" id="bullet-display">
+            <div class="gun-icon">💀</div>
+        </div>
+        
+        <div class="action-buttons">
+            <button id="shoot-self" class="btn-danger">SHOOT YOURSELF</button>
+            <button id="shoot-ai" class="btn-danger">SHOOT ENEMY</button>
+            <button id="peek" class="btn-secondary">INSPECT</button>
+        </div>
+        
+        <div class="current-items" id="current-items">
+            <div class="items-title">CURRENT ITEMS</div>
+            <div class="items-grid"></div>
+        </div>
+        
+        <div class="action-log" id="action-log">
+            <div class="log-title">EVENT LOG</div>
+        </div>
+    </div>
+
+    <!-- 音效 -->
+    <audio id="shot-sound" src="assets/sounds/shot.mp3"></audio>
+    <audio id="click-sound" src="assets/sounds/click.mp3"></audio>
+    <audio id="item-sound" src="assets/sounds/item-use.mp3"></audio>
+    <audio id="reload-sound" src="assets/sounds/reload.mp3"></audio>
+
+    <!-- 脚本 -->
+    <script type="module" src="script/main.js"></script>
+</body>
+</html>
